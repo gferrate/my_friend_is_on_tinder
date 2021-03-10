@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>My friend is on Tinder</title>
+
+
+    <!-- Adsense -->
+    <script
+      data-ad-client="ca-pub-8650316427822780"
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <!-- #Adsense -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-1RPMJ581E9"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-1RPMJ581E9");
+    </script>
+    <!-- #analytics -->
+
+    <!-- FAVICONS -->
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="{{ url_for('static', filename='logos/apple-icon-57x57.png') }}"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="{{ url_for('static', filename='logos/apple-icon-60x60.png') }}"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="{{ url_for('static', filename='logos/apple-icon-72x72.png') }}"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="{{ url_for('static', filename='logos/apple-icon-76x76.png') }}"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="{{ url_for('static', filename='logos/apple-icon-114x114.png') }}"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="{{ url_for('static', filename='logos/apple-icon-120x120.png') }}"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="{{ url_for('static', filename='logos/apple-icon-144x144.png') }}"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="{{ url_for('static', filename='logos/apple-icon-152x152.png') }}"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ url_for('static', filename='logos/apple-icon-180x180.png') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='logos/logo.png') }}"
+    />
+    <link
+      rel="manifest"
+      href="{{ url_for('static', filename='logos/manifest.json') }}"
+    />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="{{ url_for('static', filename='logos/ms-icon-144x144.png') }}"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- FAVICONS -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+      id="viewport"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script src="{{ url_for('static', filename='js/html2canvas.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/file_saver.js') }}"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <script src="{{ url_for('static', filename='js/clipboard.min.js') }}"></script>
+  </head>
+
+  <body class="p-3">
+    {% block content %} {% endblock %}
+    <div class="d-flex align-items-center justify-content-center">
+      <img
+        src="{{ url_for('static', filename='logos/logo.png')}}"
+        style="width: 5rem; height: auto"
+        class="my-3"
+        class="img-fluid"
+        alt="Responsive image"
+      />
+    </div>
+
+    <!-- Footer -->
+    <div
+      class="mt-5 pt-3 border-top d-flex align-items-center justify-content-around w-100 flex-wrap"
+    >
+      <span class="text-muted m-1 text-center" style="width: 19rem"
+        >&#169; My Friend Is on a Dating App, <span id="year"></span
+      ></span>
+      <a href="/privacy_policy" class="m-1 text-center" style="width: 19rem"
+        >Privacy Policy</a
+      >
+      <a href="/blog" class="m-1 text-muted text-center" style="width: 19rem"
+        >Blog</a
+      >
+    </div>
+    <script>
+      $(document).ready(function () {
+        $("#year").html(new Date().getFullYear());
+      });
+    </script>
+  </body>
+</html>

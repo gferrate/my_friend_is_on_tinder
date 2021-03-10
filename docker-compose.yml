@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web:
+    container_name: my_friend_is_on_tinder
+    build: ./
+    volumes:
+      - /var/log/my_friend_is_on_tinder:/var/log/nginx/
+      - /var/www/tinder/user_images/:/app/app/static/user_images/
+      #- /etc/letsencrypt/archive/my-friend-is-on-a-dating-app.com/:/etc/nginx/ssl/
+      #- /etc/letsencrypt/live/my-friend-is-on-a-dating-app.com/:/etc/nginx/ssl/:ro
+      - /etc/letsencrypt/:/etc/nginx/ssl/:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - FLASK_APP=/app/app/api.py
+      - 'RUN=flask run --host=0.0.0.0 --port=80'
+      - IS_PROD=true
+    env_file:
+      - keys.env

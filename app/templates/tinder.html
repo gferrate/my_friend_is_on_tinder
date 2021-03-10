@@ -1,0 +1,479 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1 class="mb-3 text-center w-100 mt-3">My friend is on Tinder</h1>
+<h2 class="mb-3 text-center w-100 mt-1 text-muted">
+  Create an image of a fake Tinder profile.
+</h2>
+<div class="container custom-rounded bg-white py-5 shadow mt-4 mb-5">
+  <div class="row">
+    <div class="col-md">
+      <div class="col-md d-flex justify-content-center p-1" id="appWrapper">
+        <!--App-->
+        <div class="border d-flex flex-column position-relative" id="app">
+          <!-- NAVBAR -->
+          <nav class="w-100" id="navbar">
+            <div class="d-flex justify-content-around align-items-center h-100">
+              <a aria-current="page" class=""
+                ><svg
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  height="24px"
+                  focusable="false"
+                  aria-hidden="true"
+                  role="presentation"
+                >
+                  <defs>
+                    <linearGradient
+                      id="svg-fill-linear__primary"
+                      x1="0"
+                      x2="1"
+                      y1="0.5"
+                      y2="0.49999999999999994"
+                      spreadMethod="pad"
+                    >
+                      <stop offset="0%" stop-color="#fd267d"></stop>
+                      <stop offset="100%" stop-color="#ff7854"></stop>
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M8.21 10.08c-.02 0-.04 0-.06-.02-.67-.9-.84-2.44-.89-3.03 0-.11-.13-.18-.23-.12C4.93 8.08 3 10.86 3 13.54 3 18.14 6.2 22 11.7 22c5.15 0 8.7-3.98 8.7-8.46 0-5.87-4.2-9.77-7.93-11.53a.13.13 0 0 0-.19.14c.48 3.16-.18 6.6-4.07 7.93z"
+                    fill="url(#svg-fill-linear__primary)"
+                    fill-rule="nonzero"
+                  ></path></svg
+              ></a>
+              <a class="" href="">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  height="24px"
+                  focusable="false"
+                  aria-hidden="true"
+                  role="presentation"
+                >
+                  <path
+                    d="M11.999 2C11.999 7.001 17 12 22 12c-5.001 0-10 5.382-10 10 0-4.618-5.027-10-10-10 4.974 0 9.999-4.999 9.999-10z"
+                    fill="#dadfe6"
+                  ></path>
+                </svg> </a
+              ><a class="" href="">
+                <svg
+                  class="Sq(28px) navbarActive_C($c-pink) C($c-bluegray) Trsdu($fast)"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  height="24px"
+                  focusable="false"
+                  aria-hidden="true"
+                  role="presentation"
+                >
+                  <path
+                    d="M11.612 16.143c0-2.821 2.627-5.213 5.97-5.213.776 0 1.552.184 2.269.43 0-4.048-4-7.36-8.836-7.36C6.06 4 2 7.434 2 11.543c0 2.637 1.672 5.09 4.18 6.317v2.76c0 .307.238.49.596.307l3.582-1.84h.896c.418 0 .836 0 1.194-.123-.597-.859-.836-1.84-.836-2.821zm5.97-3.68c-2.507 0-4.537 1.595-4.537 3.68s2.03 3.802 4.477 3.802h.299l.597.246.955.613c.299 0 .597 0 .597-.368v-1.104c1.194-.613 2.03-1.84 2.03-3.189 0-2.085-1.97-3.68-4.478-3.68h.06z"
+                    fill="#dadfe6"
+                  ></path>
+                </svg>
+              </a>
+              <a class="" href="">
+                <svg
+                  class=""
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  height="24px"
+                  focusable="false"
+                  aria-hidden="true"
+                  role="presentation"
+                >
+                  <g stroke="none" stroke-width="1">
+                    <path
+                      class=""
+                      d="M16.085 13.026c1.285-.975 2.088-2.625 2.088-5.55 0-3-2.65-5.476-5.861-5.476C9.1 2 6.45 4.4 6.45 7.475c0 3 .803 4.726 2.168 5.7-2.73 1.576-5.38 4.576-4.416 6.076 2.007 3.525 15.095 3.75 16.7.15.643-1.725-2.006-4.65-4.817-6.375"
+                      fill="#dadfe6"
+                    ></path>
+                  </g></svg
+              ></a>
+            </div>
+          </nav>
+
+          <!-- PIC -->
+          <div
+            class="bg-black mx-2 custom-rounded shadow position-relative"
+            id="pic-wrapper"
+            style="background-image: url({{ filename }});
+          "
+          >
+            <!-- Top buttons -->
+            <div
+              id="pic-buttons"
+              class="d-flex justify-content-between align-items-center"
+            >
+              <div class="pic-button"></div>
+              <div class="pic-button"></div>
+              <div class="pic-button"></div>
+              <div class="pic-button"></div>
+              <div class="pic-button"></div>
+            </div>
+            <div id="bio-content" class="d-flex flex-column px-3">
+              <!--Name and age-->
+              <div>
+                <div id="name" class="d-inline">{{name}}</div>
+                <div id="age" class="d-inline">{{age}}</div>
+
+                <!-- Estrelleta -->
+                {% if star %}
+                <div class="d-inline ml-1" id="star">
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="mb-2"
+                    width="24px"
+                    height="24px"
+                    focusable="false"
+                    aria-hidden="false"
+                    role="img"
+                    stroke-linecap="round"
+                  >
+                    <g>
+                      <path
+                        d="M3.206 8.732l-.562.308a1.24 1.24 0 00-.615.814c-.077.345 0 .705.211.991l.382.507a1.204 1.204 0 010 1.431l-.382.528c-.427.595-.224 1.453.427 1.783l.562.309c.471.242.741.77.651 1.276l-.112.617c-.063.35.032.708.26.983.23.274.568.438.93.448l.65.022c.54.022 1.012.375 1.146.881l.18.617c.203.703 1.012 1.078 1.707.792l.607-.242a1.296 1.296 0 011.438.308l.426.485c.241.265.587.414.949.41.361-.004.703-.162.938-.432l.427-.485a1.27 1.27 0 011.414-.33l.607.242c.332.138.709.127 1.032-.03.323-.156.561-.442.652-.785l.179-.616a1.243 1.243 0 011.146-.903l.652-.044c.358-.024.69-.195.912-.472.223-.277.315-.634.254-.98l-.11-.617a1.233 1.233 0 01.628-1.299l.561-.308a1.24 1.24 0 00.616-.814c.077-.345 0-.706-.211-.992l-.382-.507a1.204 1.204 0 010-1.43l.382-.528c.426-.595.224-1.453-.427-1.785l-.562-.308a1.22 1.22 0 01-.651-1.276l.112-.617a1.203 1.203 0 00-.26-.983 1.254 1.254 0 00-.93-.448l-.651-.022a1.222 1.222 0 01-1.146-.88l-.18-.617c-.202-.705-1.01-1.078-1.706-.793l-.674.243a1.296 1.296 0 01-1.437-.308l-.427-.485a1.255 1.255 0 00-.942-.39 1.253 1.253 0 00-.923.434l-.426.484a1.27 1.27 0 01-1.415.33l-.606-.241a1.264 1.264 0 00-1.033.03 1.222 1.222 0 00-.652.784l-.18.617a1.243 1.243 0 01-1.144.902l-.652.043c-.36.024-.692.196-.914.473a1.228 1.228 0 00-.254.982l.112.616c.134.484-.112 1.013-.584 1.277z"
+                        fill="#2180e8"
+                      ></path>
+                      <path
+                        stroke="#2180e8"
+                        d="M16.902 8.38a1.296 1.296 0 00-.94-.38c-.34 0-.682.126-.916.38l-4.184 3.934-1.622-1.4a1.282 1.282 0 00-.917-.38c-.34 0-.682.126-.939.38-.255.252-.384.57-.384.908 0 .337.129.676.384.908l2.562 2.944c.255.252.575.379.916.379.342 0 .684-.127.918-.38l5.1-5.456c.256-.253.406-.592.406-.93 0-.336-.128-.675-.385-.908h.001z"
+                        fill="#fff"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                {% endif %}
+              </div>
+
+              <!-- activities and info icon -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div id="activities" class="d-flex flex-wrap">
+                  {% for interest in interests %}
+                  <div class="activity-element text-center">{{interest}}</div>
+                  {% endfor %}
+                </div>
+                <div>
+                  <svg
+                    class="Expand"
+                    viewBox="0 0 24 24"
+                    width="24px"
+                    height="24px"
+                    focusable="false"
+                    aria-hidden="true"
+                    role="presentation"
+                  >
+                    <path
+                      fill="#fff"
+                      d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--FOOTER-->
+          <div
+            id="footer"
+            class="d-flex justify-content-around mt-3 align-items-center"
+          >
+            <!-- Reload -->
+            <div
+              class="bg-white rounded-pill p-1 pilled shadow-sm d-flex align-items-center justify-content-center"
+            >
+              <span
+                ><svg
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  height="24px"
+                  focusable="false"
+                  aria-hidden="true"
+                  role="presentation"
+                >
+                  <path
+                    d="M12.119 4.599V3.307c0-1.216-.76-1.672-1.824-.988l-.608.304L6.04 5.13l-.456.304c-1.064.76-1.064 1.748 0 2.28l.38.38c.987.76 2.66 1.824 3.647 2.432l.532.304c.912.76 1.748.228 1.748-.912V8.246a5.125 5.125 0 0 1 5.167 5.167c0 2.888-2.28 5.092-5.167 5.092-3.04 0-5.32-2.28-5.32-5.168 0-.912-.76-1.671-1.747-1.671-1.064 0-1.824.76-1.824 1.671C3 18.125 6.951 22 11.815 22c4.787 0 8.738-3.8 8.738-8.663.076-4.711-3.875-8.51-8.662-8.51l.228-.228z"
+                    fill="#dadfe6"
+                  ></path></svg
+              ></span>
+            </div>
+
+            <!--CROSS-->
+            <div
+              class="bg-white rounded-pill p-1 pilled-lg shadow-sm d-flex align-items-center justify-content-center"
+            >
+              <span
+                ><svg
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  height="24px"
+                  focusable="false"
+                  aria-hidden="true"
+                  role="presentation"
+                >
+                  <defs>
+                    <linearGradient
+                      id="svg-fill-linear__nope"
+                      x1="0.14644660940672627"
+                      x2="0.8535533905932737"
+                      y1="0.8535533905932737"
+                      y2="0.1464466094067262"
+                      spreadMethod="pad"
+                    >
+                      <stop offset="0%" stop-color="#ff7854"></stop>
+                      <stop offset="100%" stop-color="#fd267d"></stop>
+                    </linearGradient>
+                  </defs>
+                  <path
+                    class=""
+                    d="M14.926 12.56v-1.14l5.282 5.288c1.056.977 1.056 2.441 0 3.499-.813 1.057-2.438 1.057-3.413 0L11.512 15h1.138l-5.363 5.125c-.975 1.058-2.438 1.058-3.495 0-1.056-.813-1.056-2.44 0-3.417l5.201-5.288v1.14L3.873 7.27c-1.137-.976-1.137-2.44 0-3.417a1.973 1.973 0 0 1 3.251 0l5.282 5.207H11.27l5.444-5.207c.975-1.139 2.438-1.139 3.413 0 1.057.814 1.057 2.44 0 3.417l-5.2 5.288z"
+                    fill="url(#svg-fill-linear__nope)"
+                  ></path></svg
+              ></span>
+            </div>
+
+            <!--SUPER LIKE-->
+            <div
+              class="bg-white rounded-pill p-1 pilled shadow-sm d-flex align-items-center justify-content-center"
+            >
+              <span
+                ><svg
+                  class="Scale(.6) Expand"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  height="24px"
+                  focusable="false"
+                  aria-hidden="true"
+                  role="presentation"
+                >
+                  <defs>
+                    <linearGradient
+                      id="svg-fill-linear__super-like"
+                      x1="0.14644660940672627"
+                      x2="0.8535533905932737"
+                      y1="0.8535533905932737"
+                      y2="0.1464466094067262"
+                      spreadMethod="pad"
+                    >
+                      <stop offset="0%" stop-color="#08d0ff"></stop>
+                      <stop offset="100%" stop-color="#3ca4ff"></stop>
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M21.06 9.06l-5.47-.66c-.15 0-.39-.25-.47-.41l-2.34-5.25c-.47-.99-1.17-.99-1.56 0L8.87 7.99c0 .16-.23.4-.47.4l-5.47.66c-1.01 0-1.25.83-.46 1.65l4.06 3.77c.15.16.23.5.15.66L5.6 20.87c-.16.98.4 1.48 1.33.82l4.69-2.79h.78l4.69 2.87c.78.58 1.56 0 1.25-.98l-1.02-5.75s0-.4.23-.57l3.91-3.86c.78-.82.78-1.64-.39-1.64v.08z"
+                    fill="url(#svg-fill-linear__super-like)"
+                  ></path></svg
+              ></span>
+            </div>
+
+            <!--HEART-->
+            <div
+              class="bg-white rounded-pill p-1 pilled-lg shadow-sm d-flex align-items-center justify-content-center"
+            >
+              <span
+                ><svg
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  height="24px"
+                  focusable="false"
+                  aria-hidden="true"
+                  role="presentation"
+                >
+                  <defs>
+                    <linearGradient
+                      id="svg-fill-linear__like"
+                      x1="0.14644660940672627"
+                      x2="0.8535533905932737"
+                      y1="0.8535533905932737"
+                      y2="0.1464466094067262"
+                      spreadMethod="pad"
+                    >
+                      <stop offset="0%" stop-color="#7cf4f5"></stop>
+                      <stop offset="100%" stop-color="#01df8a"></stop>
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M21.994 10.225c0-3.598-2.395-6.212-5.72-6.212-1.78 0-2.737.647-4.27 2.135C10.463 4.66 9.505 4 7.732 4 4.407 4 2 6.62 2 10.231c0 1.52.537 2.95 1.533 4.076l8.024 7.357c.246.22.647.22.886 0l7.247-6.58.44-.401.162-.182.168-.174a6.152 6.152 0 0 0 1.54-4.09"
+                    fill="url(#svg-fill-linear__like)"
+                  ></path></svg
+              ></span>
+            </div>
+
+            <!--LIGHTNING-->
+            <div
+              class="bg-white rounded-pill p-1 pilled shadow-sm d-flex align-items-center justify-content-center"
+            >
+              <span
+                ><svg
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  height="24px"
+                  focusable="false"
+                  aria-hidden="true"
+                  role="presentation"
+                >
+                  <defs>
+                    <radialGradient
+                      id="svg-fill-radial__boost"
+                      cx="0.5"
+                      cy="1"
+                      fr="0"
+                      fx="0.5"
+                      fy="1"
+                      r="1"
+                      spreadMethod="pad"
+                    >
+                      <stop offset="0%" stop-color="#cf59ff"></stop>
+                      <stop offset="100%" stop-color="#7c48c3"></stop>
+                    </radialGradient>
+                  </defs>
+                  <path
+                    d="M15.979 14.018c.637-.638.51-1.275-.192-1.722l-1.275-.765c-.638-.383-1.148-1.275-.956-2.104L15.15 2.73c.191-.765-.128-.956-.765-.446L6.414 9.937c-.638.638-.51 1.275.19 1.722l1.276.765c.638.382 1.148 1.275.957 2.168l-1.658 6.632c-.191.829.191 1.02.765.446l8.035-7.652z"
+                    fill="url(#svg-fill-radial__boost)"
+                  ></path></svg
+              ></span>
+            </div>
+          </div>
+        </div>
+        <!-- !App-->
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <button
+          class="btn btn-outline-secondary mt-3 shadow"
+          id="download-image"
+        >
+          Download Image <i class="fas fa-download ml-2"></i>
+        </button>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <button
+          data-clipboard-target="#copy-href-span"
+          class="btn btn-outline-secondary mt-3 shadow"
+          id="copy-href"
+        >
+          <span id="copy-href-span"> Copy link </span>
+          <i class="fas fa-copy ml-2"></i>
+        </button>
+      </div>
+    </div>
+    <div class="col-md p-4">
+      <!-- Form -->
+      <form
+        id="tinder-form"
+        method="post"
+        enctype="multipart/form-data"
+        action="/upload"
+      >
+        <div class="">
+          <label for="form-image" class="form-label">Upload Image: </label>
+          <input
+            type="file"
+            name="file"
+            class="form-control-file"
+            id="form-image"
+            style="width: 100%"
+            accept="image/png, image/jpg, image/jpeg, image/gif, image/heic"
+            required
+          />
+          <div class="form-text">
+            Images are removed from our servers periodically
+          </div>
+        </div>
+        <div class="mt-3">
+          <label for="form-name" class="form-label">Name</label>
+          <input
+            required
+            type="text"
+            class="form-control"
+            id="form-name"
+            aria-describedby="nameHelp"
+            placeholder="{{ name }}"
+            name="name"
+          />
+          <div id="nameHelp" class="form-text">
+            Name that will appear in the Tinder page
+          </div>
+        </div>
+        <div class="mt-3">
+          <label for="form-Age" class="form-label">Age</label>
+          <input
+            required
+            type="number"
+            class="form-control"
+            id="form-Age"
+            aria-describedby="ageHelp"
+            placeholder="{{ age }}"
+            name="age"
+          />
+          <div id="ageHelp" class="form-text">
+            Age that will appear in the Tinder page
+          </div>
+        </div>
+
+        <div class="mt-3">
+          <label for="form-interests" class="form-label">Interests</label>
+          <input
+            required
+            type="text"
+            class="form-control"
+            id="form-interests"
+            aria-describedby="nameHelp"
+            placeholder="{{ interests | join(';') }}"
+            name="interests"
+          />
+          <div id="nameHelp" class="form-text">
+            Add multiple interests by separating with <kbd>;</kbd>
+          </div>
+        </div>
+
+        <div class="mt-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="form-check-star"
+            name="star"
+            checked
+          />
+          <label class="form-check-label" for="form-check-star"
+            >Verified Account</label
+          >
+        </div>
+        <button type="submit" class="btn btn btn-outline-secondary mt-3 shadow">
+          Generate Tinder Profile <i class="fas fa-rocket"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    new ClipboardJS("#copy-href", {
+      text: function (trigger) {
+        $("#copy-href-span").text("Copied!");
+        setTimeout(function () {
+          $("#copy-href-span").text("Copy link");
+        }, 1000);
+        return location.href;
+      },
+    });
+
+    $("#download-image").click(function () {
+      var oldBody = document.querySelector("body").innerHTML;
+      document.querySelector("body").innerHTML = `<div style="width: 600px">
+        ${document.getElementById("appWrapper").innerHTML}
+      </div>`;
+
+      html2canvas(document.getElementById("app")).then(function (canvas) {
+        canvas.toBlob(function (blob) {
+          saveAs(blob, "screenshot.png");
+          document.querySelector("body").innerHTML = oldBody;
+        });
+      });
+    });
+  });
+</script>
+<h3 class="mb-4 text-center w-100 mt-1 text-muted">
+  This platform is intended for making jokes, not faking profiles.
+</h3>
+
+{% endblock %}

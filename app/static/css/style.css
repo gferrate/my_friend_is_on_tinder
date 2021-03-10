@@ -1,0 +1,121 @@
+:root {
+    --app-height: 630px;
+    --footer-height: 90px;
+    --navbar-height: 60px;
+    --bio-bottom: 20px;
+    --width: calc(var(--app-height) * 0.46);
+}
+
+h1, h2, h3, #download-image, #tinder-form, #copy-href, #privacy {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#app {
+    height: var(--app-height);
+    width: var(--width);
+    background: linear-gradient(white, rgb(245, 247, 250));
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#navbar {
+    height: var(--navbar-height);
+}
+
+#pic-wrapper {
+    background-color: #fff;
+    height: calc(var(--app-height) - var(--footer-height) - var(--navbar-height));
+    /*background-image: url(/static/img/test.jpg);*/
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    height: var(--footer-height);
+    width: 100%;
+}
+
+html body {
+    width: 100%;
+    height: 100%;
+    background-color: #eee !important;
+}
+
+.tinder-color {
+    background-color: #fd5068;
+}
+
+.custom-rounded {
+    border-radius: 10px;
+}
+
+.pilled {
+    width: 43px;
+    height: 43px;
+}
+
+.pilled-lg {
+    width: 53px;
+    height: 53px;
+}
+
+#bio-content {
+    position: absolute;
+    width: 100%;
+    bottom: var(--bio-bottom);
+}
+
+#name {
+    color: white;
+    font-size: 32px;
+    font-weight: 600;
+    text-shadow: 0.3px 0.3px #000;
+}
+
+#age {
+    color: white;
+    font-size: 23px;
+    font-weight: 300;
+    margin-left: 5px;
+    text-shadow: 0.3px 0.3px #000;
+}
+
+#activities {
+    color: white;
+}
+
+.activity-element {
+    vertical-align: middle;
+    font-size: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(150, 150, 150, 0.7);
+    border-radius: 14px;
+    margin-right: 4px;
+    margin-bottom: 6px;
+}
+
+#pic-buttons {
+    width: 100%;
+    height: 17px;
+    padding-right: 7px;
+    padding-left: 7px;
+}
+
+.pic-button {
+    width: 47px;
+    height: 2px;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.pic-button:first-child {
+    background: white;
+}
