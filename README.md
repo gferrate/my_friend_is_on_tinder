@@ -4,7 +4,7 @@ This website lets you create fake tinder profiles for pranking your friends!! Yo
 
 ## Hi
 
-I took the website down because I didn't want to pay for the servers, but try it for yourself! :D
+I took the website down because I didn't want to pay for the servers, but try it out for yourself! :D
 
 ## Sneak peak:
 
